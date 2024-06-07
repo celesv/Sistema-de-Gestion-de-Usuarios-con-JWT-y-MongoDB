@@ -1,0 +1,19 @@
+[
+    {
+        "name": "Laura",
+        "edad": 22,
+        "apellido": "González",
+        "email": "laura.gonzalez@example.com",
+        "password": "SecurePass456",
+        "materias": [
+          "Historia",
+          "Biología"
+        ],
+        "grupos": [
+          "C3",
+          "D4"
+        ],
+        "iduser": 6
+      }
+      
+]
