@@ -13,7 +13,8 @@ var authController = require("../controllers/auth");
 
 // Login
 api.post('/login',[body("email").not().isEmpty(), body("password").not().isEmpty()],authController.login_user);
-
+// Logout
+api.post('/logout', middleware.userprotectUrl, authController.logout);
 
 // Usuarios 
 // GET
@@ -21,10 +22,10 @@ api.get("/user", middleware.userprotectUrl,userController.userlist);
 api.get("/user/:iduser",middleware.userprotectUrl, userController.userSingular);
 
 // POST
-api.post("/user",middleware.userprotectUrl,[body("name").not().isEmpty(),body("apellido").not().isEmpty(), body("edad").not().isEmpty(), body("email").not().isEmpty(), body("materias").not().isEmpty(), body("grupos").not().isEmpty(), body("iduser").not().isEmpty()], userController.createUser);
+api.post("/user",[body("name").not().isEmpty(),body("apellido").not().isEmpty(), body("edad").not().isEmpty(), body("email").not().isEmpty(), body("materias").not().isEmpty(), body("grupos").not().isEmpty(), body("iduser").not().isEmpty(), body("password").not().isEmpty()], userController.createUser);
 
 // PUT
-api.put("/user/:iduser",middleware.userprotectUrl,[body("name").not().isEmpty(),body("apellido").not().isEmpty(), body("edad").not().isEmpty(), body("email").not().isEmpty(), body("materias").not().isEmpty(), body("grupos").not().isEmpty(), body("iduser").not().isEmpty()], userController.updateuser)
+api.put("/user/:iduser",middleware.userprotectUrl,[body("name").not().isEmpty(),body("apellido").not().isEmpty(), body("edad").not().isEmpty(), body("email").not().isEmpty(), body("materias").not().isEmpty(), body("grupos").not().isEmpty(), body("iduser").not().isEmpty(), body("password").not().isEmpty()], userController.updateuser)
 
 // DELETE
 api.delete("/user/:iduser",middleware.userprotectUrl, userController.deleteuser)
